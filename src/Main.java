@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
@@ -158,5 +159,188 @@ public class Main {
         Integer [] numbersArray = {1, 2, 3, 4, 5};
         ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(numbersArray));
         System.out.println(numbers);
+        System.out.println("");
+
+        System.out.println("Find Common Elements");
+        ArrayList<String> aa = new ArrayList<>();
+        ArrayList<String> bb = new ArrayList<>();
+
+        aa.add("USA");
+        aa.add("Korea");
+        aa.add("Japan");
+        aa.add("Kyrgyzstan");
+
+        bb.add("Brazil");
+        bb.add("Korea");
+        bb.add("USA");
+        bb.add("France");
+        ArrayList<String> common = new ArrayList<>(aa);
+        common.retainAll(bb);
+        System.out.println(common);
+        System.out.println("");
+
+        System.out.println("Remove Even-Length Strings");
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Alina");
+        names.add("Tom");
+        names.add("Bob");
+        names.add("Mike");
+        names.removeIf(name -> name != null && name.length() % 2 == 0);
+        System.out.println(names);
+        System.out.println("");
+
+        System.out.println("Find Smallest Element");
+        ArrayList<String> songs = new ArrayList<>();
+        songs.add("Hello");
+        songs.add("The First Time");
+        songs.add("Skyfall");
+        songs.add("Dancing with a stranger");
+        if (songs.isEmpty()) {
+            System.out.println("List is empty");
+        }
+        String shortest = songs.get(0);
+        for (String s : songs) {
+            if (s != null && s.length() < shortest.length()) shortest = s;
+        }
+        System.out.println(songs);
+        System.out.println("Shortest = " + shortest);
+        System.out.println("");
+
+        System.out.println("Replace All Vowels");
+        ArrayList<String> words = new ArrayList<>();
+        words.add("apple");
+        words.add("education");
+        words.add("banana");
+        for (int i = 0; i < words.size(); i++) {
+            String w = words.get(i);
+            if (w == null) continue;
+            words.set(i, w.replaceAll("(?i)[aeiou]", "*"));
+        }
+        System.out.println(words);
+        System.out.println("");
+
+        System.out.println("Partition ArrayList");
+        ArrayList<Integer> nums = new ArrayList<>();
+        nums.add(1);
+        nums.add(2);
+        nums.add(3);
+        nums.add(4);
+        nums.add(5);
+        nums.add(6);
+        nums.add(7);
+        ArrayList<Integer> evens = new ArrayList<>();
+        ArrayList<Integer> odds = new ArrayList<>();
+        for (Integer n : nums) {
+            if (n == null) continue;
+            if (n % 2 == 0) evens.add(n);
+            else odds.add(n);
+        }
+        System.out.println("Evens: " + evens);
+        System.out.println("Odds : " + odds);
+        System.out.println("");
+
+        System.out.println("Rotate Elements");
+        ArrayList<String> days = new ArrayList<>();
+        days.add("Mon");
+        days.add("Tue");
+        days.add("Wed");
+        days.add("Thu");
+        days.add("Fri");
+        days.add("Sat");
+        days.add("Sun");
+        System.out.println(days);
+        /*int positions = 2; // number of positions to rotate
+
+        // Rotate to the right
+        for (int i = 0; i < positions; i++) {
+            String lastday = days.remove(days.size() - 1); // remove last element
+            days.add(0, lastday); // add it at the beginning
+        } */
+        //I wrote this one first but then i looked for the ways I could write it in short
+        Collections.rotate(days, 2);//then i found this
+        System.out.println(days);
+        System.out.println("");
+
+        System.out.println("Remove Null Values");
+        ArrayList<String> studnames = new ArrayList<>();
+        studnames.add("Altynay");
+        studnames.add("Aiperi");
+        studnames.add("Zhibek");
+        studnames.add(null);
+        studnames.add(null);
+        System.out.println("Student names: " + studnames);
+
+        for (int i = 0; i < studnames.size(); i++) {
+            if (studnames.get(i) == null) {
+                studnames.remove(i);
+                i--;
+            }
+        }
+        System.out.println("Students list without nulls: " + studnames);
+        System.out.println("");
+
+        System.out.println(" Find Second Largest Element");
+        ArrayList<String> movies = new ArrayList<>();
+        movies.add("Up");
+        movies.add("Stranger Things");
+        movies.add("Avatar");
+        movies.add("Interstellar");
+        movies.add("The Godfather");
+        System.out.println(movies);
+        if (movies.size() < 2) {
+            System.out.println("Need at least 2 titles");
+            return;
+        }
+        String longest2 = "";
+        String second = "";
+        for (String m : movies) {
+            if (m.length() > longest2.length()) {
+                second = longest2;
+                longest2 = m;
+            } else if (m.length() > second.length() && m.length() < longest2.length()) {
+                second = m;
+            }
+        }
+        System.out.println("Second longest: "+second);
+        System.out.println("");
+
+        System.out.println("Replace Elements with Lengths");
+        ArrayList<String> fruits2 = new ArrayList<>();
+        fruits2.add("Apple");
+        fruits2.add("Banana");
+        fruits2.add("Mango");
+        fruits2.add("Pineapple");
+        System.out.println("Fruits: " + fruits2);
+        for (int i = 0; i < fruits2.size(); i++) {
+            int length = fruits2.get(i).length();
+            fruits2.set(i, String.valueOf(length)); // convert int to String
+        }
+        System.out.println("Fruits replaced by their lengths: " + fruits2);
+        System.out.println("");
+
+        System.out.println(" Create Nested ArrayList");
+        ArrayList<String> itDep = new ArrayList<>();
+        itDep.add("Mike");
+        itDep.add("Bob");
+        itDep.add("Brian");
+
+        ArrayList<String> hrDep = new ArrayList<>();
+        hrDep.add("David");
+        hrDep.add("Charlote");
+
+        ArrayList<String> salesDep = new ArrayList<>();
+        salesDep.add("Frank");
+        salesDep.add("Sunshine");
+        salesDep.add("Jane");
+
+        // Create an ArrayList of ArrayLists
+        ArrayList<ArrayList<String>> company = new ArrayList<>();
+        company.add(itDep);
+        company.add(hrDep);
+        company.add(salesDep);
+        for (int i = 0; i < company.size(); i++) {
+            ArrayList<String> department = company.get(i);
+            System.out.println("Department " + (i + 1) + ": " + department);
+        }
     }
 }
