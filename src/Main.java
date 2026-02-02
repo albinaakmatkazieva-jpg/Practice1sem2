@@ -56,7 +56,29 @@ public class Main {
         ArrayList<String> foods = new ArrayList<>();
         foods.add("pizza");
         foods.add("pizza");
-        foods.add("burger"):
+        foods.add("burger");
+        foods.add("pasta");
+        foods.add("pizza");
+        foods.add("pizza");
+         int cc=0;
+        for (String food : foods) {
+            if (food.equals("pizza")){
+                cc++;
+            }
+        }
+        System.out.println(foods);
+        System.out.println("Pizza counts "+ cc);
+        System.out.println("");
+
+        System.out.println("Remove All Matching Elements");
+        ArrayList<String> fruits = new ArrayList<>();
+        fruits.add("apple");
+        fruits.add("banana");
+        fruits.add("orange");
+        fruits.add("banana");
+        fruits.add("kiwi");
+        fruits.removeIf(f ->"banana".equals(f));
+        System.out.println(fruits);
 
     }
 }
