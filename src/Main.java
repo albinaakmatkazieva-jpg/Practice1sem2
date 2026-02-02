@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -113,6 +114,49 @@ public class Main {
             System.out.println("The sport list does not contain sublist sports");
         }
 
+        System.out.println();
+        System.out.println(" Find Index of Element");
+        ArrayList<String> flowers = new ArrayList<>();
+        flowers.add("rose");
+        flowers.add("lily");
+        flowers.add("tulip");
+        flowers.add("rose");
+        System.out.println(flowers);
+        int first = flowers.indexOf("rose");
+        int last = flowers.lastIndexOf("rose");
+        System.out.println("First index = "+first);
+        System.out.println("Last index = "+last);
+        System.out.println();
 
+        System.out.println("Remove Duplicates");
+        ArrayList<String> animals = new ArrayList<>();
+        animals.add("cat");
+        animals.add("dog");
+        animals.add("lion");
+        animals.add("cat");
+        animals.add("dog");
+        ArrayList<String> remove = new ArrayList<>();
+        for (String a : animals){
+            if (!remove.contains(a)){
+                remove.add(a);
+            }
+        }
+        System.out.println(remove);
+        System.out.println("");
+
+        System.out.println("Convert ArrayList to Array");
+        ArrayList<String> cities = new ArrayList<>();
+        cities.add("LA");
+        cities.add("Bishkek");
+        cities.add("Seoul");
+        cities.add("London");
+        String[] arr = cities.toArray(new String[0]);
+        System.out.println(Arrays.toString(arr));
+        System.out.println("");
+
+        System.out.println("Convert Array to ArrayList");
+        Integer [] numbersArray = {1, 2, 3, 4, 5};
+        ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(numbersArray));
+        System.out.println(numbers);
     }
 }
