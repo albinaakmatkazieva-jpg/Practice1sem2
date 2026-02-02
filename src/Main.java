@@ -79,6 +79,40 @@ public class Main {
         fruits.add("kiwi");
         fruits.removeIf(f ->"banana".equals(f));
         System.out.println(fruits);
+        System.out.println();
+
+        System.out.println("Replace ALl Elements");
+        ArrayList<String> colors = new ArrayList<>();
+        colors.add("white");
+        colors.add("red");
+        colors.add("pink");
+        System.out.println(colors);
+        for(int i=0; i< colors.size(); i++){
+            colors.set(i,"black");
+        }
+        System.out.println(colors);
+        System.out.println("");
+
+        System.out.println("Check Sublist Replace");
+        ArrayList<String> sports = new ArrayList<>();
+        ArrayList<String> small = new ArrayList<>();
+
+        sports.add("Basketball");
+        sports.add("Football");
+        sports.add("Volleyball");
+        sports.add("Tennis");
+
+        small.add("Football");
+        small.add("Tennis");
+
+        System.out.println(sports);
+        System.out.println(small);
+        if (sports.containsAll(small)){
+            System.out.println("The sport list contains sublist sports: " +small);
+        }else{
+            System.out.println("The sport list does not contain sublist sports");
+        }
+
 
     }
 }
